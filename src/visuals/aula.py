@@ -1,11 +1,8 @@
 entrada = open("16s_bacteria.fasta").read()
 saida = open("16s_bacteria.html","w")
 
-cont = {}
-
-for i in ['A', 'T', 'C', 'G']:
-	for j in ['A', 'T', 'C', 'G']:
-		cont[i+j] = 0
+sequence = ["A", "C", "T", "G"]
+cont = { i + j : 0 for i in sequence for j in sequence }
 
 entrada = entrada.replace("\n","")
 
