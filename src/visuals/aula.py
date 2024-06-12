@@ -1,26 +1,26 @@
-entrada = open("16s_bacteria.fasta").read()
-saida = open("16s_bacteria.html","w")
+input = open("18s_humano.fasta").read()
+output = open("18s_humano.html","w")
 
 sequence = ["A", "C", "T", "G"]
-cont = { i + j : 0 for i in sequence for j in sequence }
+count = { i + j : 0 for i in sequence for j in sequence }
 
-entrada = entrada.replace("\n","")
+input = input.replace("\n","")
 
-for k in range(len(entrada)-1):
-	cont[entrada[k]+entrada[k+1]] += 1
+for k in range(len(input)-1):
+	count[input[k]+input[k+1]] += 1
 
 # html
 
-saida.write("<div>")
+output.write("<div>")
 
 i = 1
-for k in cont:
-	transparencia = cont[k]/max(cont.values())
-	saida.write("<div style='width:100px; border:1px solid #111; color:#fff; height:100px; float:left; background-color:rgba(0, 0, 0, "+str(transparencia)+"')>"+k+"</div>")
+for k in count:
+	alpha = count[k]/max(count.values())
+	output.write("<div style='width:100px; border:1px solid #111; color:#fff; height:100px; float:left; background-color:rgba(0, 0, 0, "+str(alpha)+"')>"+k+"</div>")
 
 	if i%4 == 0:
-		saida.write("<div style='clear:both'></div>")
+		output.write("<div style='clear:both'></div>")
 
 	i+=1
 
-saida.close()
+output.close()
